@@ -1,8 +1,54 @@
-<ul>
-  <li>Pie</li>
-  <li>Day update bar with line</li>
-  <li>gauge</li>
-  <li>modals</li>
-</ul>
+<div class="form main-form">
+	<div class="row">
+		<div class="col-md-4">
+			<input type="text" ng-model="myLocation" placeholder="Enter a Location" />
+			<div class="btn btn-success" ng-click="updateLocation()">Update</div>
+		</div>
+		<div class="col-md-4">
+			Try changing locations to see the graphs update. This project uses angular and c3 libraries for dynamic updating.
+		</div>
+		<div class="col-md-4">
+			<a href="http://c3js.org" target="_blank">C3js.org</a><br/>
+			<a href="http://angularjs.org" target="_blank">AngularJS</a><br/>
+			<a href="http://openweathermap.org/" target="_blank">OpenWeatherMap</a>
+			
+		</div>
+	</div>
+</div>
 
-<div id="gauge"></div>
+<div class="row">
+	<div class="col-md-6">
+		<h4>Current Temperature</h4>
+		<div id="temp-gauge"></div>
+	</div>
+	<div class="col-md-6">
+		<h4>Average Rainfall</h4>
+		<div id="bar-rainfall"></div>
+	</div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  City Data
+</button>
+<br/>
+<div class="clearfix"></div>
+<br/>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">{{myLocation}} Data</h4>
+      </div>
+      <div class="modal-body">
+        Population: {{cityData.pop | number}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
